@@ -1,0 +1,115 @@
+/* ============================================================
+   UTOPIA FLUID TOKENS — 430px → 1920px
+============================================================ */
+:root {
+  --step-0:    clamp(1.125rem, calc(0.2rem + 4.3vw), 5rem);
+  --space-s: clamp(1rem,   calc(0.7rem + 0.6vw),  1.5rem);
+  --space-m: clamp(1rem, calc(0.857rem + 0.667vw), 1.5rem);
+  --space-l: clamp(5rem,   calc(0.5rem + 13.5vw), 17.4375rem);
+
+  --color-bg:        #000;
+  --color-text:      #ddd;
+  --color-img:       #424242;
+  --color-hero-from: #fd0c03;
+  --color-hero-to:   #fdacac;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--color-bg); color: var(--color-text); overflow-x: hidden; }
+
+
+/* SITE */
+.site {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: var(--space-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  position: relative;
+  z-index: 2;
+}
+
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.hero-scene {
+  width: 100%;
+  height: 100vh;
+}
+
+@media (max-width: 540px) {
+  .description { filter: blur(0.3px); }
+}
+
+/* ============================================================
+   GALLERY
+   4-column flex grid. Each image sizes to its natural ratio.
+============================================================ */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-s);
+  align-items: flex-start;
+}
+
+.img {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+}
+
+.img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   RESPONSIVE
+   Tablet ≤ 900px → 2 columns
+   Mobile ≤ 540px → 1 column
+============================================================ */
+@media (max-width: 900px) and (min-width: 541px) {
+  .description { filter: blur(0.5px); }
+}
+
+@media (max-width: 900px) {
+  .gallery-row {
+    flex-wrap: wrap;
+  }
+  .gallery-row .img {
+    flex: 1 1 calc(50% - var(--space-s));
+  }
+}
+
+@media (max-width: 540px) {
+  .gallery-row .img {
+    flex: 1 1 100%;
+  }
+}
+
+/* Lenis recommended CSS */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+
+
+
