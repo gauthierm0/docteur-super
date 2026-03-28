@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "description": "Plain HTML/CSS/JS portfolio site",
   "scripts": {
-    "generate": "node generate.js"
+    "build": "echo \"no build step\""
   }
 }
